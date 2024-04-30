@@ -11,6 +11,9 @@ def main():
     # Select font from Google Fonts
     font_name = st.selectbox("Select Font from Google Fonts", ["Open Sans", "Roboto", "Lato"])
     
+    # Download the selected font
+    font_file_path = download_font(font_name)
+
     # Font size input
     font_size = st.number_input("Enter Font Size", min_value=1, max_value=100, value=12, step=1)
     
@@ -21,6 +24,7 @@ def main():
     st.header("Upload Template Image")
     template_image = st.file_uploader("Upload a template image", type=["jpg", "png"])
 
+    # Names input
     st.header("Enter Names")
     names_text = st.text_area("Enter each name on a new line")
     names = names_text.split("\n")  # Split the input into a list of names
