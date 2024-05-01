@@ -6,6 +6,10 @@ from backend import generate_certificates, download_font, generate_certificate
 
 # Main Function to generate certificate with selected font and name position
 def main():
+    st.set_page_config(page_title="Certificate Creator Baloney", page_icon="📜", layout="wide")
+    st.markdown("<h1 style='text-align: center;'>Create Certificates Instantly</h1>", unsafe_allow_html=True)
+    st.write("\n")
+
     st.title("Certificate Generator")
 
     # Select font from Google Fonts
@@ -38,3 +42,11 @@ def main():
         generate_certificates(names, font_name, font_size, text_color, template_image)
         st.write("Certificates generated. Download the zip file.")
         st.download_button("Download Zip File", "certificates.zip")
+    
+    footer_placeholder = st.empty()
+    
+    footer_placeholder.markdown("""
+    <div style="position: bottom; width: 100%; text-align: center;">
+        <h1 style='font-size: 18px;'>This site is brought to you by thehappybaloney. If you have any queries, or suggestions on how this site can be made better feel free to reach out to me on Twitter or Github (@thehappybaloney).</h1>
+    </div>
+""", unsafe_allow_html=True)
